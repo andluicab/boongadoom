@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: 85d1dad03bbb0464ba3a2bc5a83c7019
+timeCreated: 1474653595
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bear_skin
+    100004: Chest
+    100006: Chest_Ctrl
+    100008: Forte
+    100010: Head
+    100012: Head-nub
+    100014: Head_ctrl
+    100016: L_Arm
+    100018: L_Arm_IKgoal
+    100020: L_Calf
+    100022: L_Clavicle
+    100024: L_Fingers-nub
+    100026: L_Fingers1
+    100028: L_Fingers2
+    100030: L_Fingers_ctrl
+    100032: L_Foot
+    100034: L_Foot-nub
+    100036: L_Foot_Ctrl
+    100038: L_FootTip_Ctrl
+    100040: L_forearm
+    100042: L_Hand
+    100044: L_Hand-nub
+    100046: L_Hand_Ctrl
+    100048: L_Leg_IKgoal
+    100050: L_Shoulder_Ctrl
+    100052: L_Thigh
+    100054: L_Thumb-nub
+    100056: L_Thumb1
+    100058: L_Thumb2
+    100060: L_Thumb_ctrl
+    100062: L_Wrist
+    100064: Main_Ctrl
+    100066: Neck
+    100068: Pelvis
+    100070: Pelvis-nub
+    100072: R_Arm
+    100074: R_Arm_IKgoal
+    100076: R_Calf
+    100078: R_Clavicle
+    100080: R_Fingers-nub
+    100082: R_Fingers1
+    100084: R_Fingers2
+    100086: R_fingers_Ctrl
+    100088: R_Foot
+    100090: R_Foot-nub
+    100092: R_Foot_Ctrl
+    100094: R_FootTip_Ctrl
+    100096: R_forearm
+    100098: R_Hand
+    100100: R_Hand-nub
+    100102: R_Hand_Ctrl
+    100104: R_Leg_IKgoal
+    100106: R_Shoulder_Ctrl
+    100108: R_Thigh
+    100110: R_Thumb-nub
+    100112: R_Thumb1
+    100114: R_Thumb2
+    100116: R_Thumb_ctrl
+    100118: R_Wrist
+    100120: Spine
+    100122: Spine_IKgoal
+    400000: //RootNode
+    400002: bear_skin
+    400004: Chest
+    400006: Chest_Ctrl
+    400008: Forte
+    400010: Head
+    400012: Head-nub
+    400014: Head_ctrl
+    400016: L_Arm
+    400018: L_Arm_IKgoal
+    400020: L_Calf
+    400022: L_Clavicle
+    400024: L_Fingers-nub
+    400026: L_Fingers1
+    400028: L_Fingers2
+    400030: L_Fingers_ctrl
+    400032: L_Foot
+    400034: L_Foot-nub
+    400036: L_Foot_Ctrl
+    400038: L_FootTip_Ctrl
+    400040: L_forearm
+    400042: L_Hand
+    400044: L_Hand-nub
+    400046: L_Hand_Ctrl
+    400048: L_Leg_IKgoal
+    400050: L_Shoulder_Ctrl
+    400052: L_Thigh
+    400054: L_Thumb-nub
+    400056: L_Thumb1
+    400058: L_Thumb2
+    400060: L_Thumb_ctrl
+    400062: L_Wrist
+    400064: Main_Ctrl
+    400066: Neck
+    400068: Pelvis
+    400070: Pelvis-nub
+    400072: R_Arm
+    400074: R_Arm_IKgoal
+    400076: R_Calf
+    400078: R_Clavicle
+    400080: R_Fingers-nub
+    400082: R_Fingers1
+    400084: R_Fingers2
+    400086: R_fingers_Ctrl
+    400088: R_Foot
+    400090: R_Foot-nub
+    400092: R_Foot_Ctrl
+    400094: R_FootTip_Ctrl
+    400096: R_forearm
+    400098: R_Hand
+    400100: R_Hand-nub
+    400102: R_Hand_Ctrl
+    400104: R_Leg_IKgoal
+    400106: R_Shoulder_Ctrl
+    400108: R_Thigh
+    400110: R_Thumb-nub
+    400112: R_Thumb1
+    400114: R_Thumb2
+    400116: R_Thumb_ctrl
+    400118: R_Wrist
+    400120: Spine
+    400122: Spine_IKgoal
+    2300000: //RootNode
+    2300002: bear_skin
+    2300004: Forte
+    3300000: //RootNode
+    3300002: bear_skin
+    3300004: Forte
+    4300000: bear_skin
+    4300002: Forte
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

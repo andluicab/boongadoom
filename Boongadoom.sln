@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{7315C241-08F7-7D51-E6DB-4EE473D912D1}") = "Boongadoom", "Assembly-CSharp.csproj", "{EB8BF492-39DD-4AE6-C066-80A6C64AD3A9}"
+EndProject
+Project("{7315C241-08F7-7D51-E6DB-4EE473D912D1}") = "Boongadoom", "Assembly-CSharp-Editor.csproj", "{42525B75-81E0-4B45-BC9C-0632C4FABF4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB8BF492-39DD-4AE6-C066-80A6C64AD3A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8BF492-39DD-4AE6-C066-80A6C64AD3A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8BF492-39DD-4AE6-C066-80A6C64AD3A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8BF492-39DD-4AE6-C066-80A6C64AD3A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42525B75-81E0-4B45-BC9C-0632C4FABF4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42525B75-81E0-4B45-BC9C-0632C4FABF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42525B75-81E0-4B45-BC9C-0632C4FABF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42525B75-81E0-4B45-BC9C-0632C4FABF4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

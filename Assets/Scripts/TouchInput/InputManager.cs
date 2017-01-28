@@ -38,62 +38,64 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void GetInputs(){
-		#if UNITY_WEBGL || UNITY_STANDALONE
-		if (Input.GetMouseButton (0)) {
-			AnyButtonsUnpress ();
+		#if UNITY_WEBGL || UNITY_STANDALONE || UNITY_EDITOR
+		if(!Input.touchSupported){
+			if (Input.GetMouseButton (0)) {
+				AnyButtonsUnpress ();
 
-			for (int j = 0; j < buttonsWithSlide.Length; j++) {
-				if (buttonsWithSlide [j].ButtonArea.Contains (Input.mousePosition)) {
-					buttonsWithSlide [j].AnyButtonPressed = true;
-					if (!buttonsWithSlide [j].ButtonPressed) {
-						buttonsWithSlide [j].ButtonPressed = true;
-						buttonsWithSlide [j].StartPress ();
+				for (int j = 0; j < buttonsWithSlide.Length; j++) {
+					if (buttonsWithSlide [j].ButtonArea.Contains (Input.mousePosition)) {
+						buttonsWithSlide [j].AnyButtonPressed = true;
+						if (!buttonsWithSlide [j].ButtonPressed) {
+							buttonsWithSlide [j].ButtonPressed = true;
+							buttonsWithSlide [j].StartPress ();
+						}
 					}
+				}
+
+			} else {
+				AnyButtonsUnpress ();
+			}
+
+			if(Input.GetAxis(Buttons.mouseScrollWheel) != 0){
+				float zoomToAdd = Input.GetAxis(Buttons.mouseScrollWheel) * mouseScrollSpeed;
+				cameraManager.ZoomCamera( zoomToAdd );
+			}
+
+			if(Input.GetButtonDown(Buttons.fire2)){
+				if(!mouseDragging){
+					mouseRotating = true;
+					mouseLastPosition = Input.mousePosition;
 				}
 			}
 
-		} else {
-			AnyButtonsUnpress ();
-		}
-
-		if(Input.GetAxis("Mouse ScrollWheel") != 0){
-			float zoomToAdd = Input.GetAxis("Mouse ScrollWheel") * mouseScrollSpeed;
-			cameraManager.ZoomCamera( zoomToAdd );
-		}
-
-		if(Input.GetButtonDown("Fire2")){
-			if(!mouseDragging){
-				mouseRotating = true;
-				mouseLastPosition = Input.mousePosition;
+			if(Input.GetButton(Buttons.fire2)){
+				if(mouseLastPosition != mouseNullPosition && !mouseDragging && mouseRotating){
+					cameraManager.RotateCamera( ScreenPositionPercentage(Input.mousePosition) - ScreenPositionPercentage(mouseLastPosition));
+					mouseLastPosition = Input.mousePosition;
+				}
 			}
-		}
+			if(Input.GetButtonUp(Buttons.fire2)){
+				mouseRotating = false;
+				mouseLastPosition = mouseNullPosition;
+			}
 
-		if(Input.GetButton("Fire2")){
-			if(mouseLastPosition != mouseNullPosition && !mouseDragging && mouseRotating){
-				cameraManager.RotateCamera( ScreenPositionPercentage(Input.mousePosition) - ScreenPositionPercentage(mouseLastPosition));
-				mouseLastPosition = Input.mousePosition;
+			if(Input.GetButtonDown(Buttons.fire3)){
+				if(!mouseRotating){
+					mouseDragging = true;
+					mouseLastPosition = Input.mousePosition;
+				}
 			}
-		}
-		if(Input.GetButtonUp("Fire2")){
-			mouseRotating = false;
-			mouseLastPosition = mouseNullPosition;
-		}
-
-		if(Input.GetButtonDown("Fire3")){
-			if(!mouseRotating){
-				mouseDragging = true;
-				mouseLastPosition = Input.mousePosition;
+			if(Input.GetButton(Buttons.fire3)){
+				if(mouseLastPosition != mouseNullPosition && mouseDragging && !mouseRotating){
+					cameraManager.DragCamera( ScreenPositionPercentage(Input.mousePosition) - ScreenPositionPercentage(mouseLastPosition));
+					mouseLastPosition = Input.mousePosition;
+				}
 			}
-		}
-		if(Input.GetButton("Fire3")){
-			if(mouseLastPosition != mouseNullPosition && mouseDragging && !mouseRotating){
-				cameraManager.DragCamera( ScreenPositionPercentage(Input.mousePosition) - ScreenPositionPercentage(mouseLastPosition));
-				mouseLastPosition = Input.mousePosition;
+			if(Input.GetButtonUp(Buttons.fire3)){
+				mouseDragging = false;
+				mouseLastPosition = mouseNullPosition;
 			}
-		}
-		if(Input.GetButtonUp("Fire3")){
-			mouseDragging = false;
-			mouseLastPosition = mouseNullPosition;
 		}
 		#endif
 		#if UNITY_ANDROID || UNITY_IOS

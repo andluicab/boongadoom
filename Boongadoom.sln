@@ -1,9 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{7315C241-08F7-7D51-E6DB-4EE473D912D1}") = "Boongadoom", "Assembly-CSharp.csproj", "{EB8BF492-39DD-4AE6-C066-80A6C64AD3A9}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boongadoom", "Assembly-CSharp.csproj", "{EB8BF492-39DD-4AE6-C066-80A6C64AD3A9}"
 EndProject
-Project("{7315C241-08F7-7D51-E6DB-4EE473D912D1}") = "Boongadoom", "Assembly-CSharp-Editor.csproj", "{42525B75-81E0-4B45-BC9C-0632C4FABF4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boongadoom", "Assembly-CSharp-Editor.csproj", "{42525B75-81E0-4B45-BC9C-0632C4FABF4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

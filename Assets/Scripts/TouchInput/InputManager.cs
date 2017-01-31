@@ -4,8 +4,11 @@ using System.Collections;
 
 public class InputManager : MonoBehaviour {
 
+	public static InputManager control;
 	public InputButtonWithSlide[] buttonsWithSlide;
-	public Rect clickableArea;
+	//public Rect clickableArea;
+	Character selectedChar;
+	SkillButton selectedSkill;
 	bool pinching = false;
 	public float dragThresholdTime = 0.05f;
 	public float pinchThreshold = 1f;
@@ -26,6 +29,14 @@ public class InputManager : MonoBehaviour {
 	//multiply by screen proportion to make the screen move equally even using a percentage
 	//float screenHeight = ((float)Screen.height*((float)Screen.width/(float)Screen.height))/100f;
 	float screenHeight = (float)Screen.height/100f;
+
+	void Awake(){
+		if (control == null) {
+			control = this;
+		} else {
+			Destroy (gameObject);
+		}
+	}
 
 	void Update () {
 		GetInputs ();
@@ -60,6 +71,10 @@ public class InputManager : MonoBehaviour {
 			if(Input.GetAxis(Buttons.mouseScrollWheel) != 0){
 				float zoomToAdd = Input.GetAxis(Buttons.mouseScrollWheel) * mouseScrollSpeed;
 				cameraManager.ZoomCamera( zoomToAdd );
+			}
+
+			if(Input.GetButtonDown(Buttons.fire1)){
+					//mouseLastPosition = Input.mousePosition;
 			}
 
 			if(Input.GetButtonDown(Buttons.fire2)){
@@ -271,5 +286,21 @@ public class InputManager : MonoBehaviour {
 		rectHeight *= Screen.height;
 		
 		return rectHeight;
+	}
+
+	public void setSelectedChar(Character selectedChar){
+		this.selectedChar = selectedChar;
+	}
+
+	public void setSelectedSkill(SkillButton selectedSkill){
+		this.selectedSkill = selectedSkill;
+	}
+
+	public void DeselectChar(){
+		setSelectedChar (null);
+	}
+
+	public void DeselectSkill(){
+		setSelectedSkill (null);
 	}
 }

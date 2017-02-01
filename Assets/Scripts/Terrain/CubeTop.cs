@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class CubeTop : MonoBehaviour {
 
+	Cube cube;
 	public GameObject cubeOnTopObject;
 	public Cube cubeOnTopScript;
 
-	void OnTriggerEnter(Collider other) {
+	public virtual void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == Tags.wall) {
 			cubeOnTopObject = other.gameObject;
 			cubeOnTopScript = cubeOnTopObject.GetComponent<Cube> ();
 		}
 	}
 
-	void OnTriggerExit(Collider other) {
+	public virtual void OnTriggerExit(Collider other) {
 		if (other.gameObject.tag == Tags.wall) {
 			if (other.gameObject == cubeOnTopObject) {
 				cubeOnTopObject = null;
@@ -25,5 +26,13 @@ public class CubeTop : MonoBehaviour {
 
 	public bool HasCubeOnTop(){
 		return cubeOnTopObject != null;
+	}
+
+	public void setCube(Cube cube){
+		this.cube = cube;
+	}
+
+	public Cube getCube(){
+		return cube;
 	}
 }

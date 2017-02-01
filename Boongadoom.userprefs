@@ -9,16 +9,19 @@
       <File FileName="Assets\Scripts\Utilities\GameObjectMovement\MoveToDirection3D.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\NamesPatterns\Tags.cs" Line="10" Column="62" />
       <File FileName="Assets\Scripts\Camera\CameraManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TouchInput\ControlsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Characters\Character.cs" Line="17" Column="32" />
+      <File FileName="Assets\Scripts\TouchInput\ControlsManager.cs" Line="171" Column="42" />
+      <File FileName="Assets\Scripts\NamesPatterns\HashAnimatorCharacter.cs" Line="31" Column="43" />
       <File FileName="Assets\Scripts\Characters\CharacterActionsEnum.cs" Line="9" Column="2" />
-      <File FileName="Assets\Scripts\NamesPatterns\HashAnimatorCharacter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Terrain\Cube.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Terrain\CubeTop.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Terrain\Cube.cs" Line="9" Column="31" />
+      <File FileName="Assets\Scripts\Characters\Character.cs" Line="274" Column="35" />
+      <File FileName="Assets\Scripts\Terrain\CubeTop.cs" Line="7" Column="11" />
       <File FileName="..\..\..\Users\Drac\Desktop\Código-fonte\rbt-gm\Assets\Scripts\Character\CameraMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\NamesPatterns\Buttons.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TouchInput\InputManager.cs" Line="304" Column="20" />
-      <File FileName="Assets\Scripts\TouchInput\SkillButton.cs" Line="10" Column="48" />
+      <File FileName="Assets\Scripts\TouchInput\InputManager.cs" Line="374" Column="4" />
+      <File FileName="Assets\Scripts\TouchInput\SkillButton.cs" Line="24" Column="20" />
+      <File FileName="..\..\unity 4 projects\mobile RTS - Unity5\Assets\Scripts\GameController\CharactersManager.cs" Line="116" Column="3" />
+      <File FileName="..\MobileAction\Mobile Action\Assets\Scripts\TouchInput\InputManager.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\Characters\CharacterClickArea.cs" Line="5" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

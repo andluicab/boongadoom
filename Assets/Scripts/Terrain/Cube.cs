@@ -5,8 +5,14 @@ using UnityEngine;
 public class Cube : MonoBehaviour {
 
 	public CubeTop cubeTop;
+	public bool canDigThis = true;
+	public float digMaxLife = 10f;
 
-	public int GetHeight(){
+	public virtual void Awake(){
+		cubeTop.setCube (this);
+	}
+
+	public virtual int GetHeight(){
 		Cube cubeToCheck = cubeTop.cubeOnTopScript;
 		int height = 1;
 
@@ -16,5 +22,13 @@ public class Cube : MonoBehaviour {
 		}
 
 		return height;
+	}
+
+	public virtual void TakeDamage(float damage){
+		if (damage < digMaxLife) {
+			digMaxLife -= damage;
+		} else {
+			digMaxLife = 0;
+		}
 	}
 }

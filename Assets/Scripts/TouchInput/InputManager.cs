@@ -6,6 +6,8 @@ public class InputManager : MonoBehaviour {
 
 	public static InputManager control;
 	public InputButtonWithSlide[] buttonsWithSlide;
+	public RectTransform[] nonMoveUIArea;
+	Rect[] nonMoveUIAreaRect;
 	//public Rect clickableArea;
 	Character selectedChar;
 	SkillButton selectedSkill;
@@ -33,6 +35,11 @@ public class InputManager : MonoBehaviour {
 	void Awake(){
 		if (control == null) {
 			control = this;
+			nonMoveUIAreaRect = new Rect[nonMoveUIArea.Length];
+
+			for (int i = 0; i < nonMoveUIArea.Length; i++) {
+				nonMoveUIAreaRect [i] = GetRectFromRectTransformUI (nonMoveUIArea [i]);
+			}
 		} else {
 			Destroy (gameObject);
 		}
@@ -74,7 +81,7 @@ public class InputManager : MonoBehaviour {
 			}
 
 			if(Input.GetButtonDown(Buttons.fire1)){
-					//mouseLastPosition = Input.mousePosition;
+				CheckClickedPoint(Input.mousePosition);
 			}
 
 			if(Input.GetButtonDown(Buttons.fire2)){
@@ -148,6 +155,11 @@ public class InputManager : MonoBehaviour {
 					}
 				}
 			}
+
+			if(Input.touchCount == 1){
+				CheckClickedPoint(Input.GetTouch(0).position);
+			}
+
 			if (Input.touchCount == 2){
 				//if(clickableArea.Contains(Input.GetTouch(0).position) && clickableArea.Contains(Input.GetTouch(1).position)){
 								
@@ -203,6 +215,43 @@ public class InputManager : MonoBehaviour {
 		}
 		#endif
 		ReleaseUnusedButtons ();
+	}
+
+	void CheckClickedPoint(Vector3 clickedPoint){
+		bool clickedInUI = false;
+		for (int i = 0; i < nonMoveUIAreaRect.Length; i++) {
+			if (nonMoveUIAreaRect [i].Contains (clickedPoint) && nonMoveUIArea[i].gameObject.activeInHierarchy) {
+				clickedInUI = true;
+			}
+		}
+
+		if (!clickedInUI) {
+			//CODE WITH ONLY ONE RAYCASTHIT
+			Ray ray = Camera.main.ScreenPointToRay (clickedPoint);
+			RaycastHit hit;
+			//Physics.Raycast (ray.origin, ray.direction, out hit);
+
+			if (Physics.Raycast (ray.origin, ray.direction, out hit)) {
+				if (hit.collider != null) {
+					//the hit.collider gets the object directly clicked. If you use only the hit, you will get the parent
+					switch (hit.collider.transform.gameObject.tag) {
+					case Tags.characterClickArea:
+						setSelectedChar(hit.collider.transform.gameObject.GetComponent<CharacterClickArea> ().character);
+						if (selectedSkill != null) {
+							DoSkill ();
+						}
+						break;
+					default:
+						DeselectChar ();
+						DeselectSkill ();
+						break;
+					}
+				} else {
+					
+				}
+			}
+		}
+
 	}
 
 	Vector2 DragMovement(Touch touch){
@@ -290,17 +339,46 @@ public class InputManager : MonoBehaviour {
 
 	public void setSelectedChar(Character selectedChar){
 		this.selectedChar = selectedChar;
+		if (this.selectedChar != null) {
+			this.selectedChar.Select ();
+		}
 	}
 
 	public void setSelectedSkill(SkillButton selectedSkill){
+		if (this.selectedSkill != null) {
+			this.selectedSkill.Deselected ();
+		}
 		this.selectedSkill = selectedSkill;
+		if (selectedChar != null && this.selectedSkill != null) {
+			DoSkill ();
+		}
+	}
+
+	public void DoSkill(){
+		if (selectedChar != null) {
+			if (selectedSkill != null) {
+				selectedChar.StartAction(selectedSkill.skill);
+				DeselectChar();
+				DeselectSkill();
+			}
+		}
+	}
+
+	public SkillButton getSelectedSkill(){
+		return selectedSkill;
 	}
 
 	public void DeselectChar(){
+		if (selectedChar != null) {
+			selectedChar.Deselect ();
+		}
 		setSelectedChar (null);
 	}
 
 	public void DeselectSkill(){
+		if (selectedSkill != null) {
+			selectedSkill.Deselected ();
+		}
 		setSelectedSkill (null);
 	}
 }

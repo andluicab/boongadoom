@@ -5,8 +5,22 @@ using UnityEngine;
 public class SkillButton : MonoBehaviour {
 
 	public CharacterActionsEnum skill;
+	public bool selected = false;
 
 	public void Clicked(){
-		InputManager.control.setSelectedSkill (this);
+		if (InputManager.control.getSelectedSkill() != this) {
+			InputManager.control.setSelectedSkill (this);
+			Selected ();
+		} else {
+			InputManager.control.setSelectedSkill (null);
+			Deselected ();
+		}
+	}
+
+	public void Selected(){
+		selected = true;
+	}
+	public void Deselected(){
+		selected = false;
 	}
 }

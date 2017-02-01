@@ -103,6 +103,8 @@
      <Compile Include="Assets\Scripts\Camera\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Characters\Character.cs" />
      <Compile Include="Assets\Scripts\Characters\CharacterActionsEnum.cs" />
+     <Compile Include="Assets\Scripts\Characters\CharacterClickArea.cs" />
+     <Compile Include="Assets\Scripts\Characters\FloorCheck.cs" />
      <Compile Include="Assets\Scripts\NamesPatterns\Buttons.cs" />
      <Compile Include="Assets\Scripts\NamesPatterns\HashAnimatorCharacter.cs" />
      <Compile Include="Assets\Scripts\NamesPatterns\Tags.cs" />

@@ -104,6 +104,7 @@
      <Compile Include="Assets\Scripts\Characters\Character.cs" />
      <Compile Include="Assets\Scripts\Characters\CharacterActionsEnum.cs" />
      <Compile Include="Assets\Scripts\Characters\CharacterClickArea.cs" />
+     <Compile Include="Assets\Scripts\Characters\CubeWallCheck.cs" />
      <Compile Include="Assets\Scripts\Characters\FloorCheck.cs" />
      <Compile Include="Assets\Scripts\NamesPatterns\Buttons.cs" />
      <Compile Include="Assets\Scripts\NamesPatterns\HashAnimatorCharacter.cs" />
@@ -159,6 +160,7 @@
      <Compile Include="Assets\Scripts\Utilities\Scene\EnableObjectsOnSpecificScenes.cs" />
      <Compile Include="Assets\Scripts\Utilities\Scene\goToScene.cs" />
      <Compile Include="Assets\Scripts\Utilities\Scene\goToSceneTimer.cs" />
+     <Compile Include="Assets\Scripts\Utilities\UI\ImageUISpriteSwap.cs" />
      <None Include="Assets\Art\Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Art\Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Art\Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Cube : MonoBehaviour {
 
 	public CubeTop cubeTop;
+	public Collider colliderFloor;
+	public Collider colliderWall;
 	public bool canDigThis = true;
 	public float digMaxLife = 10f;
 
@@ -29,6 +31,12 @@ public class Cube : MonoBehaviour {
 			digMaxLife -= damage;
 		} else {
 			digMaxLife = 0;
+			CubeLifeZero ();
 		}
+	}
+
+	public virtual void CubeLifeZero(){
+		colliderFloor.enabled = false;
+		colliderWall.enabled = false;
 	}
 }

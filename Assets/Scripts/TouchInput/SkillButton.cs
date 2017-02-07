@@ -6,21 +6,26 @@ public class SkillButton : MonoBehaviour {
 
 	public CharacterActionsEnum skill;
 	public bool selected = false;
+	public ImageUISpriteSwap spriteSwapUI;
 
 	public void Clicked(){
 		if (InputManager.control.getSelectedSkill() != this) {
-			InputManager.control.setSelectedSkill (this);
-			Selected ();
+			if (!selected) {
+				Selected ();
+				InputManager.control.setSelectedSkill (this);
+			}
 		} else {
-			InputManager.control.setSelectedSkill (null);
 			Deselected ();
+			InputManager.control.setSelectedSkill (null);
 		}
 	}
 
 	public void Selected(){
 		selected = true;
+		spriteSwapUI.SwapToSprite (1);
 	}
 	public void Deselected(){
 		selected = false;
+		spriteSwapUI.SwapToSprite (0);
 	}
 }

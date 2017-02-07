@@ -8,6 +8,8 @@ public class Character : MonoBehaviour {
 	public HashAnimatorCharacter hashAnimator;
 	public MoveToDirection3D moveToDirection3D;
 	public FloorCheck floorCheck;
+	public CubeWallCheck wallCheckTop;
+	public CubeWallCheck wallCheckDown;
 	public bool changeDirectionToBack = false;
 	public float speed = 3f;
 	public GameObject selectedObjects;
@@ -16,7 +18,8 @@ public class Character : MonoBehaviour {
 	Cube digFloorCube;
 	public float timerDigWall = 3f;
 	public float digWallDamage = 1f;
-	Cube digWallCube;
+	Cube digWallCubeTop;
+	Cube digWallCubeDown;
 	public float timerClimb = 3f;
 	public int climbMaxHeight = 2;
 	public float timerBlock = 3f;
@@ -90,7 +93,12 @@ public class Character : MonoBehaviour {
 	public virtual void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == Tags.wall) {
 			if (action == CharacterActionsEnum.digWall) {
-				digWallCube = collision.gameObject.GetComponent<Cube> (); 
+				if(wallCheckTop.getCubeColliding() != null){
+					digWallCubeTop = wallCheckTop.getCubeColliding();
+				}
+				if(wallCheckDown.getCubeColliding() != null){
+					digWallCubeDown = wallCheckDown.getCubeColliding();
+				}
 				DigWallStart ();
 			}
 			if (action == CharacterActionsEnum.climb) {
@@ -117,6 +125,10 @@ public class Character : MonoBehaviour {
 	}
 
 	public virtual void StartAction(CharacterActionsEnum newAction){
+		if (usingSkill) {
+			StopAllActionAnimations ();
+			NoAction ();
+		}
 		action = newAction;
 		usingSkill = true;
 
@@ -181,19 +193,26 @@ public class Character : MonoBehaviour {
 		animator.SetBool (hashAnimator.digWall, true);
 	}
 	public virtual void DigWallAction(){
-		if (digWallCube != null) {
-			if (digWallCube.digMaxLife > 0) {
-				digWallCube.TakeDamage (digWallDamage*Time.deltaTime);
+		if (digWallCubeTop != null) {
+			if (digWallCubeTop.digMaxLife > 0) {
+				digWallCubeTop.TakeDamage (digWallDamage * Time.deltaTime);
 			} else {
-				DigWallEnd ();
+				digWallCubeTop = null;
 			}
-		} else {
+		}
+		if (digWallCubeDown != null) {
+			if (digWallCubeDown.digMaxLife > 0) {
+				digWallCubeDown.TakeDamage (digWallDamage * Time.deltaTime);
+			} else {
+				digWallCubeDown = null;
+			}
+		}
+		if(digWallCubeTop == null && digWallCubeDown == null) {
 			DigWallEnd ();
 		}
 	}
 	public virtual void DigWallEnd(){
 		animator.SetBool (hashAnimator.digWall, false);
-		digWallCube = null;
 		NoAction ();
 	}
 	public virtual void ClimbTimer(){
@@ -216,7 +235,7 @@ public class Character : MonoBehaviour {
 		animator.SetBool (hashAnimator.block, true);
 	}
 	public virtual void BlockEnd(){
-		animator.SetBool (hashAnimator.block, true);
+		animator.SetBool (hashAnimator.block, false);
 		NoAction ();
 	}
 	public virtual void ParachuteTimer(){
@@ -265,6 +284,16 @@ public class Character : MonoBehaviour {
 		doingSkill = false;
 		timerSkillActual = 0f;
 		timerSkillPassed = 0f;
+	}
+
+	public virtual void StopAllActionAnimations(){
+		animator.SetBool (hashAnimator.digFloor, false);
+		animator.SetBool (hashAnimator.digWall, false);
+		animator.SetBool (hashAnimator.climb, false);
+		animator.SetBool (hashAnimator.block, false);
+		animator.SetBool (hashAnimator.parachute, false);
+		animator.SetBool (hashAnimator.push, false);
+		animator.SetBool (hashAnimator.run, false);
 	}
 
 	public virtual void Select(){

@@ -10,6 +10,8 @@ public class HashAnimatorCharacter : MonoBehaviour {
 	public int isDead;
 	public int skill;
 
+	public int falling;
+
 	public int digFloor;
 	public int digWall;
 	public int climb;
@@ -24,6 +26,8 @@ public class HashAnimatorCharacter : MonoBehaviour {
 		direction = Animator.StringToHash("Direction");
 		isDead = Animator.StringToHash("IsDead");
 		skill = Animator.StringToHash ("Skill");
+
+		falling = Animator.StringToHash ("Falling");
 
 		digFloor = Animator.StringToHash ("DigFloor");
 		digWall = Animator.StringToHash ("DigWall");

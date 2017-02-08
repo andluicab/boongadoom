@@ -241,6 +241,9 @@ public class InputManager : MonoBehaviour {
 							DoSkill ();
 						}
 						break;
+					case Tags.blockArrow:
+						hit.collider.transform.gameObject.GetComponent<BlockSkillArrow> ().Clicked();
+						break;
 					default:
 						DeselectChar ();
 						DeselectSkill ();
@@ -358,8 +361,10 @@ public class InputManager : MonoBehaviour {
 		if (selectedChar != null) {
 			if (selectedSkill != null) {
 				selectedChar.StartAction(selectedSkill.skill);
-				DeselectChar();
-				DeselectSkill();
+				if (selectedSkill.skill != CharacterActionsEnum.block) {
+					DeselectChar ();
+					DeselectSkill ();
+				}
 			}
 		}
 	}

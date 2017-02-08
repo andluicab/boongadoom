@@ -36,8 +36,16 @@ public class MoveToDirection3D : MonoBehaviour {
 		}
 
 		if (lookAt) {
-			directionToMoveVector = DirectionsVectors3D.directionVector3D [Directions3D.north];
-			transform.rotation = Quaternion.Euler ( new Vector3 (transform.rotation.x, DirectionsVectors3D.DirectionYRotation[direction], transform.rotation.z) );
+			if (direction != Directions3D.top && direction != Directions3D.bottom) {
+				directionToMoveVector = DirectionsVectors3D.directionVector3D [Directions3D.north];
+				transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.x, DirectionsVectors3D.DirectionYRotation [direction], transform.rotation.z));
+			} else {
+				directionToMoveVector = DirectionsVectors3D.directionVector3D [direction];
+			}
 		}
+	}
+
+	public void ChangeDirection(Vector3 directionVector){
+		directionToMoveVector = directionVector;
 	}
 }

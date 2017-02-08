@@ -5,9 +5,11 @@ public class Tags : MonoBehaviour {
 	public const string achievementVisualObject = "AchievementVisualObject";
 	public const string audioController = "AudioController";
 	public const string backgroundMusicObject = "BackgroundMusicObject";
+	public const string blockArrow = "BlockArrow";
 	public const string card = "Card";
 	public const string character = "Character";
 	public const string characterClickArea = "CharacterClickArea";
+	public const string characterBlocking = "CharacterBlocking";
 	public const string floor = "Floor";
 	public const string floorAbove = "FloorAbove";
 	public const string gameController = "GameController";

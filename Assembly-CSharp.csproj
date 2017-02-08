@@ -84,6 +84,8 @@
      <Compile Include="Assets\Art\Assets\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
      <Compile Include="Assets\Art\Assets\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\Art\Assets\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+     <Compile Include="Assets\BlockSkill.cs" />
+     <Compile Include="Assets\BlockSkillArrow.cs" />
      <Compile Include="Assets\Scripts\AudioSystem\AudioCopier.cs" />
      <Compile Include="Assets\Scripts\AudioSystem\AudioManager.cs" />
      <Compile Include="Assets\Scripts\AudioSystem\AudioNames.cs" />

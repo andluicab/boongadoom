@@ -106,11 +106,9 @@ public class Character : MonoBehaviour {
 			case CharacterActionsEnum.push:
 				PushAction ();
 				break;
-				/*
+
 			case CharacterActionsEnum.run:
-				RunTimer ();
 				break;
-				*/
 			default:
 				NoAction ();
 				break;
@@ -179,6 +177,11 @@ public class Character : MonoBehaviour {
 	}
 
 	public virtual void ChangeDirection(){
+
+		if (action == CharacterActionsEnum.run) {
+			RunEnd ();
+		}
+
 		if (changeDirectionToBack) {
 			moveToDirection3D.ChangeDirection (DirectionsChanges3D.RandomDirectionGrounded (moveToDirection3D.direction));
 		} else {
@@ -449,8 +452,10 @@ public class Character : MonoBehaviour {
 		NoAction ();
 	}
 	public virtual void RunTimer(){
+		
 		doingSkill = true;
 		timerSkillActual = timerRun;
+
 		moveToDirection3D.speed = runSpeed;
 		animator.SetBool (hashAnimator.run, true);
 	}

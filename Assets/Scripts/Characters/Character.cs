@@ -40,6 +40,8 @@ public class Character : MonoBehaviour {
 	public float parachuteAngle = 0.25f;
 	public float timerPush = 3f;
 	public float pushSpeed = 3f;
+	PushableCube pushCube;
+	MoveToDirection3D pushCubeMovement;
 	public float timerRun = 3f;
 	public float runSpeed = 6f;
 	bool usingSkill = false;
@@ -128,10 +130,26 @@ public class Character : MonoBehaviour {
 				DigWallStart ();
 			}
 			if (action == CharacterActionsEnum.climb) {
-				ClimbStart (collision.gameObject.GetComponent<Cube>());
+				ClimbStart ();
 			}
 			if (action == CharacterActionsEnum.push) {
-				PushStart (collision.gameObject.GetComponent<Cube> ());
+				if (wallCheckDown.getCubeColliding () != null) {
+					
+					int height = wallCheckDown.getCubeColliding ().GetHeight ();
+					if (height == 1 && pushCube==null && wallCheckDown.getCubeColliding ().pushable) {
+						pushCube = wallCheckDown.getCubeColliding ().gameObject.GetComponent<PushableCube> ();
+						pushCubeMovement = pushCube.moveToDirection;
+
+						if (pushCube != null && pushCubeMovement != null) {
+							PushStart ();
+						} else {
+							ChangeDirection ();
+						}
+					} else {
+						ChangeDirection ();
+					}
+				}
+
 			}
 
 			if (action != CharacterActionsEnum.digWall && action != CharacterActionsEnum.climb && action != CharacterActionsEnum.push) {
@@ -270,7 +288,7 @@ public class Character : MonoBehaviour {
 	public virtual void ClimbTimer(){
 		timerSkillActual = timerClimb;
 	}
-	public virtual void ClimbStart(Cube cubeToClimb){
+	public virtual void ClimbStart(){
 		int wallHeight = 0;
 		if (wallCheckDown.getCubeColliding () != null) {
 			wallHeight = wallCheckDown.getCubeColliding ().GetHeight ();
@@ -404,16 +422,30 @@ public class Character : MonoBehaviour {
 	public virtual void PushTimer(){
 		timerSkillActual = timerPush;
 	}
-	public virtual void PushStart(Cube cubeToPush){
+	public virtual void PushStart(){
 		doingSkill = true;
 		animator.SetBool (hashAnimator.push, true);
+
+		pushCube.StartPushing (this);
+
 		moveToDirection3D.speed = pushSpeed;
+
+		pushCubeMovement.ChangeDirection(moveToDirection3D.direction);
+		pushCubeMovement.speed = pushSpeed;
+
+		pushCubeMovement.StartMoving ();
 	}
 	public virtual void PushAction(){
 	
 	}
 	public virtual void PushEnd(){
+		pushCubeMovement.StopMoving ();
+		ChangeDirection ();
+
+		pushCube = null;
+		pushCubeMovement = null;
 		animator.SetBool (hashAnimator.push, false);
+
 		NoAction ();
 	}
 	public virtual void RunTimer(){

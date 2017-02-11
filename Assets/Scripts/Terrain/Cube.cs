@@ -8,6 +8,7 @@ public class Cube : MonoBehaviour {
 	public Collider colliderFloor;
 	public Collider colliderWall;
 	public bool canDigThis = true;
+	public bool pushable = false;
 	public float digMaxLife = 10f;
 
 	public virtual void Awake(){

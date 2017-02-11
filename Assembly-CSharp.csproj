@@ -136,6 +136,7 @@
      <Compile Include="Assets\Scripts\PersistenceSystem\PlayersManagement\StarScoreDeactivateByAchievement.cs" />
      <Compile Include="Assets\Scripts\Terrain\Cube.cs" />
      <Compile Include="Assets\Scripts\Terrain\CubeTop.cs" />
+     <Compile Include="Assets\Scripts\Terrain\PushableCube.cs" />
      <Compile Include="Assets\Scripts\TouchInput\ControlsManager.cs" />
      <Compile Include="Assets\Scripts\TouchInput\InputButtonWithSlide.cs" />
      <Compile Include="Assets\Scripts\TouchInput\InputDragAndDropManager.cs" />

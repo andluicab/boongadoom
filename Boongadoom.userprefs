@@ -7,7 +7,7 @@
       <File FileName="Assets\Scripts\TouchInput\SkillButton.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TouchInput\InputButtonWithSlide.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TouchInput\ControlsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Characters\Character.cs" Line="110" Column="34" />
+      <File FileName="Assets\Scripts\Characters\Character.cs" Line="327" Column="120" />
       <File FileName="Assets\Scripts\Terrain\PushableCube.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Utilities\GameObjectMovement\MoveToDirection3D.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Characters\FloorCheck.cs" Line="1" Column="1" />
@@ -19,6 +19,7 @@
       <File FileName="Assets\Scripts\NamesPatterns\Tags.cs" Line="1" Column="1" />
       <File FileName="Assets\BlockSkill.cs" Line="1" Column="1" />
       <File FileName="Assets\BlockSkillArrow.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Terrain\CubeTop.cs" Line="15" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

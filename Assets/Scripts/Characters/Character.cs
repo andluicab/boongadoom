@@ -151,7 +151,7 @@ public class Character : MonoBehaviour {
 			}
 
 			if (action != CharacterActionsEnum.digWall && action != CharacterActionsEnum.climb && action != CharacterActionsEnum.push) {
-				if (wallCheckTop.getCubeColliding () != null && wallCheckDown.getCubeColliding () != null) {
+				if (wallCheckTop.getCubeColliding () != null || wallCheckDown.getCubeColliding () != null) {
 					ChangeDirection ();
 				}
 			}
@@ -324,7 +324,7 @@ public class Character : MonoBehaviour {
 	}
 	public virtual void ClimbEnd(){
 		animator.SetBool (hashAnimator.climb, false);
-		transform.position = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (lastBlockTopClimb.transform.position.y)+1.5f, Mathf.Round (transform.position.z));
+		transform.position = new Vector3 (Mathf.Round (transform.position.x), Mathf.Round (lastBlockTopClimb.transform.parent.position.y)+1.5f, Mathf.Round (transform.position.z));
 		lastBlockTopClimb = null;
 		NoAction ();
 	}

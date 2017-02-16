@@ -12,12 +12,14 @@ public class CubeTop : MonoBehaviour {
 		if (other.gameObject.tag == Tags.wall) {
 			cubeOnTopObject = other.gameObject;
 			cubeOnTopScript = cubeOnTopObject.GetComponent<Cube> ();
+			//Debug.Log (cubeOnTopObject);
 		}
 	}
 
 	public virtual void OnTriggerExit(Collider other) {
 		if (other.gameObject.tag == Tags.wall) {
 			if (other.gameObject == cubeOnTopObject) {
+				Debug.Log (cubeOnTopObject);
 				cubeOnTopObject = null;
 				cubeOnTopScript = null;
 			}

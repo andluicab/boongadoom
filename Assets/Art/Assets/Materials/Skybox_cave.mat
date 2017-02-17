@@ -72,7 +72,7 @@ Material:
     - first:
         name: _Tex
       second:
-        m_Texture: {fileID: 8900000, guid: 775df63a3518b39488195c80a05ca3c2, type: 3}
+        m_Texture: {fileID: 8900000, guid: e6920e241a454a1489d1002ac0f4d7c3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -154,4 +154,4 @@ Material:
       second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - first:
         name: _Tint
-      second: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
+      second: {r: 0.22448549, g: 0.25098038, b: 0.18798922, a: 1}
